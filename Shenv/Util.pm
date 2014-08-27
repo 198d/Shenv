@@ -8,19 +8,19 @@ use Exporter qw(import);
 
 
 sub parse_value_pair {
-  my ($line)  = @_;
-  chomp($line);
-  split("=", $line, 2);
+    my ($line)    = @_;
+    chomp($line);
+    split("=", $line, 2);
 }
 
 
 sub set_value_pair {
-  my ($line, $hashref) = @_;
-  my ($name, $value) = parse_value_pair($line);
+    my ($line, $hashref) = @_;
+    my ($name, $value) = parse_value_pair($line);
 
-  $$hashref{$name} = $value;
+    $$hashref{$name} = $value;
 
-  return ($name, $value);
+    return ($name, $value);
 }
 
 

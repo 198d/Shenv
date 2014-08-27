@@ -12,15 +12,15 @@ use Shenv::Client;
 
 
 sub validate_args {
-  my ($self, $opt, $args) = @_;
-  $self->usage_error("need to provide a command to execute") unless @$args;
+    my ($self, $opt, $args) = @_;
+    $self->usage_error("need to provide a command to execute") unless @$args;
 }
 
 
 sub execute {
-  my ($self, $opt, $args) = @_;
-  source(\%ENV);
-  exec @$args;
+    my ($self, $opt, $args) = @_;
+    source(\%ENV);
+    exec @$args;
 }
 
 
