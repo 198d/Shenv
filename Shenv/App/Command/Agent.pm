@@ -19,7 +19,26 @@ use IO::Socket::UNIX;
 use Shenv::Util;
 
 
+sub opt_spec {
+  return (
+    ["kill|k", "kill the current agent process"]
+  );
+}
+
+
 sub execute {
+  my ($self, $opt, $args) = @_;
+
+  if ($opt->{kill}) {
+    my $agent_pid = $ENV{SHENV_AGENT_PID};
+    unless ($agent_pid && kill('TERM', $agent_pid)) {
+      say(STDERR "failed to kill agent; is agent running?");
+      exit(1);
+    }
+    say("sent TERM to $agent_pid");
+    exit();
+  }
+
   unless (fork()) {
     POSIX::setsid();
 
