@@ -1,14 +1,14 @@
 # ABSTRACT: execute a command in the current environment
 package Shenv::App::Command::Exec;
-use Shenv::App -command;
 
 
-use v5.016;
+use strict;
 use warnings;
 
 use IO::Socket::UNIX;
 
 use Shenv::Client;
+use Shenv::App -command;
 
 
 sub validate_args {

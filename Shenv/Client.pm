@@ -1,8 +1,9 @@
 package Shenv::Client;
 
 
-use v5.016;
+use strict;
 use warnings;
+use feature 'say';
 
 use IO::Socket::UNIX;
 use Exporter qw(import);

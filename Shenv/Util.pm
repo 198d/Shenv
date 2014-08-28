@@ -1,8 +1,9 @@
 package Shenv::Util;
 
 
-use v5.016;
+use strict;
 use warnings;
+use feature 'say';
 
 use Exporter qw(import);
 

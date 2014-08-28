@@ -1,13 +1,12 @@
 # ABSTRACT: export a variable into the environment
 package Shenv::App::Command::Export;
-use Shenv::App -command;
 
-
-use v5.016;
+use strict;
 use warnings;
-
+use feature 'say';
 
 use Shenv::Client;
+use Shenv::App -command;
 
 
 sub validate_args {

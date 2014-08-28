@@ -1,20 +1,19 @@
 # ABSTRACT: show current environment
 package Shenv::App::Command::Show;
-use Shenv::App -command;
 
 
-use v5.016;
+use strict;
 use warnings;
-
-use Data::Dumper;
+use feature 'say';
 
 use Shenv::Client;
+use Shenv::App -command;
 
 
 sub execute {
     my %environment = source();
     while (my ($name, $value) = each(%environment)) {
-        say "$name=$value";
+        say("$name=$value");
     }
 }
 

@@ -1,22 +1,23 @@
 # ABSTRACT: run the agent daemon to manage the environment
 package Shenv::App::Command::Agent;
-use Shenv::App -command;
 
 
-use v5.016;
+use strict;
 use warnings;
-
 use threads;
 use threads::shared;
+use feature 'say';
 
 use POSIX;
 use File::Temp;
 use File::Path qw(rmtree);
 use Sys::Syslog qw(:standard :macros);
-use Perl::Unsafe::Signals;
 use IO::Socket::UNIX;
 
+use Perl::Unsafe::Signals;
+
 use Shenv::Util;
+use Shenv::App -command;
 
 
 sub opt_spec {
