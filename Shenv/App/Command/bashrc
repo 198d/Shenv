@@ -1,0 +1,5 @@
+eval `$SHENV_EXECUTABLE agent`
+trap "$SHENV_EXECUTABLE agent -k" EXIT
+
+PS1="[shenv:$SHENV_AGENT_PID] $PS1"
+PROMPT_COMMAND="$PROMPT_COMMAND; eval \`$SHENV_EXECUTABLE show --eval\`"
